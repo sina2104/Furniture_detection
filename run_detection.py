@@ -3,8 +3,7 @@ import torch
 import torchvision
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from PIL import Image
-
-
+import sys
 
 def get_transform():
     custom_transforms = []
@@ -28,7 +27,12 @@ model.load_state_dict(torch.load('furniture_detection_model.pth'))
 model.to(device)
 model.eval()
 
-image_path = r"Test_images/Test_image3.png"
+try:
+    image_path = sys.argv[1]
+except IndexError as e:
+    print('\033[93m' + 'No path added\n','Add the path off the file in the terminal like this:\n python run_detection.py image_path'.format(e))
+    sys.exit()
+
 image = Image.open(image_path).convert('RGB')
 
 # Apply transformations to the image
@@ -91,4 +95,4 @@ for box, label, score in zip(boxes, labels, scores):
         cv2.putText(image, f'{label_name} {"%.2f" % score}' , (xmin, ymin - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
 
 # Save the image with bounding boxes
-cv2.imwrite('Test_images/Test_result3.jpg', image)
+cv2.imwrite('Test_images/Result.jpg', image)
