@@ -4,7 +4,7 @@
 This is a furniture detction model trained on pytorch resnet50 model with synthetic dataset generated in Unreal engine and annoatated with coco-annotator.
 
 ---
-### How to run it?
+### How to train the model?
 To train the model, first clone the page in your terminal, then go to furniture detction:
 ```shell
 git clone https://github.com/sina2104/Furniture_detection)
@@ -18,7 +18,7 @@ python furniture_detection.py
 In the same dataset you can directly download the already trained model in this directory.
 
 ---
-### How to run the model?
+### How to run it?
 To run the model just write the path to your image like this:
 ```shell
 python run_detection.py /path/to/image.jpg
