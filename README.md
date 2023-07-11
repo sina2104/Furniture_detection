@@ -15,7 +15,7 @@ Now check if you have all the python laboratories use and to train your model:
 ```shell
 python furniture_detection.py
 ```
-In the same dataset you can directly download the already trained model in this directory.
+In the same dataset you can directly download the already trained model to this directory.
 
 ---
 ### How to run it?
